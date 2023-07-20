@@ -41,7 +41,9 @@ if ($selected_id) {
 
     $filtered_tasks = array_filter($tasks, fn ($task) => $task["id"] != $selected_id);
 
-    file_put_contents($db_path, json_encode($filtered_tasks));
+    $tasks = $filtered_tasks;
+
+    file_put_contents($db_path, json_encode($tasks));
 }
 
 // avviso
