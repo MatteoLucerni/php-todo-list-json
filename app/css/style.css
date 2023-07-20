@@ -10,6 +10,8 @@ ul{
 li span{
     user-select: none;
     cursor: pointer;
+    word-wrap: break-word;
+    max-width: 100%;
 }
 
 i{
