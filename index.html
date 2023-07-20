@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSN6lOXCO2TrtZHLLkQbJGudtbpKcQnKRyOVA&usqp=CAU" type="image/x-icon">
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css' integrity='sha512-t4GWSVZO1eC8BM339Xd7Uphw5s17a86tIZIj8qRxhnKub6WoyhnrxeCIMeAqBPgdZGlCcG2PrZjMc+Wr78+5Xg==' crossorigin='anonymous'/>
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' integrity='sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==' crossorigin='anonymous'/>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js' integrity='sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ==' crossorigin='anonymous'></script>
+
+    <link rel="stylesheet" href="app/css/style.css">
+    
+    <title>ToDo List</title>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div id="root">
+            <h1>TODO LIST</h1>
+            <ul>
+                <li v-for="task in tasks">
+                    {{ task }}
+                </li>
+            </ul>
+            <form action="">
+                <input class="form-control w-25" type="text" placeholder="Insert a task...">
+                <input class="mt-4 btn btn-primary" type="submit" value="ADD">
+            </form>
+        </div>
+    </div>
+
+    <script src="app/js/script.js"></script>
+</body>
+</html>
