@@ -18,16 +18,17 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="container my-5">
         <div id="root">
-            <h1>TODO LIST</h1>
-            <ul>
-                <li v-for="task in tasks" :key="task.id">
+            <h1 class="text-center">TODO LIST</h1>
+            <ul class="list-group text-dark">
+                <li class="list-group-item d-flex justify-content-between" v-for="task in tasks" :key="task.id">
                     <span @click="changeStatus(task.id)" :class="{'text-decoration-line-through':task.completed === true}">{{ task.text }}</span>
+                    <i class="fa-solid fa-trash text-danger"></i>
                 </li>
             </ul>
-            <form @submit.prevent="addNewTask" action="">
-                <input v-model.trim="newTask" class="form-control w-25" type="text" placeholder="Insert a task..." required>
+            <form @submit.prevent="addNewTask" action="" class="text-center">
+                <input v-model.trim="newTask" class="form-control mt-4" type="text" placeholder="Insert a task..." required>
                 <input class="mt-4 btn btn-primary" type="submit" value="ADD">
             </form>
         </div>

@@ -3,7 +3,15 @@ body{
     color: white;
 }
 
+ul{
+    list-style: none;
+}
+
 li span{
     user-select: none;
+    cursor: pointer;
+}
+
+i{
     cursor: pointer;
 }
