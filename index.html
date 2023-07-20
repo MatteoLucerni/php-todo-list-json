@@ -26,8 +26,8 @@
                     {{ task }}
                 </li>
             </ul>
-            <form action="">
-                <input class="form-control w-25" type="text" placeholder="Insert a task...">
+            <form @submit.prevent="addNewTask" action="">
+                <input v-model.trim="newTask" class="form-control w-25" type="text" placeholder="Insert a task...">
                 <input class="mt-4 btn btn-primary" type="submit" value="ADD">
             </form>
         </div>
