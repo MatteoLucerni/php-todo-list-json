@@ -10,9 +10,15 @@ const app = createApp({
   },
   methods: {
     addNewTask() {
-      //   axios
-      //     .post('http://localhost/php-todo-list-json/api/tasks/', data, config)
-      //     .then();
+      const data = { task: this.newTask };
+      const config = { headers: { 'Content-Type': 'multipart/form-data' } };
+
+      axios
+        .post('http://localhost/php-todo-list-json/api/tasks/', data, config)
+        .then(res => {
+          console.log('Task added');
+          this.tasks = res.data;
+        });
     },
   },
   created() {
