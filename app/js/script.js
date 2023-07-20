@@ -30,7 +30,18 @@ const app = createApp({
         .post('http://localhost/php-todo-list-json/api/tasks/', data, config)
         .then(res => {
           this.tasks = res.data;
-          console.log('changed status');
+          console.log('Changed status');
+        });
+    },
+    deleteTask(selectedId) {
+      const data = { delId: selectedId };
+      const config = { headers: { 'Content-Type': 'multipart/form-data' } };
+
+      axios
+        .post('http://localhost/php-todo-list-json/api/tasks/', data, config)
+        .then(res => {
+          this.tasks = res.data;
+          console.log('Deleted task');
         });
     },
   },

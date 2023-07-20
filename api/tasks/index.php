@@ -35,6 +35,15 @@ if ($selected_id) {
     file_put_contents($db_path, json_encode($tasks));
 }
 
+// POST per cancellare la task
+$selected_id = $_POST['delId'] ?? null;
+if ($selected_id) {
+
+    $filtered_tasks = array_filter($tasks, fn ($task) => $task["id"] != $selected_id);
+
+    file_put_contents($db_path, json_encode($filtered_tasks));
+}
+
 // avviso
 header('Content-Type: application/json');
 
