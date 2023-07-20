@@ -11,7 +11,7 @@ $tasks = json_decode($json_data, true);
 $new_task = $_POST['text'] ?? null;
 if ($new_task) {
     // calcolo l'id da dare alla task che aggiungerò
-    $highest_id = $tasks[count($tasks) - 1]["id"] + 1;
+    $highest_id = empty($tasks) ? 1 : $tasks[count($tasks) - 1]["id"] + 1;
 
     // aggiungo la task
     $tasks[] = [
