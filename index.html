@@ -22,8 +22,8 @@
         <div id="root">
             <h1>TODO LIST</h1>
             <ul>
-                <li v-for="task in tasks">
-                    {{ task }}
+                <li v-for="task, i in tasks" :key="i+task" :class="{'text-decoration-line-through':task.completed === true}">
+                    {{ task.task }}
                 </li>
             </ul>
             <form @submit.prevent="addNewTask" action="">
