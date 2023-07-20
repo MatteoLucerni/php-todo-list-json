@@ -22,12 +22,12 @@
         <div id="root">
             <h1>TODO LIST</h1>
             <ul>
-                <li v-for="task, i in tasks" :key="i+task" :class="{'text-decoration-line-through':task.completed === true}">
-                    {{ task.task }}
+                <li v-for="task in tasks" :key="task.id">
+                    <span @click="!task.completed" :class="{'text-decoration-line-through':task.completed === true}">{{ task.text }}</span>
                 </li>
             </ul>
             <form @submit.prevent="addNewTask" action="">
-                <input v-model.trim="newTask" class="form-control w-25" type="text" placeholder="Insert a task...">
+                <input v-model.trim="newTask" class="form-control w-25" type="text" placeholder="Insert a task..." required>
                 <input class="mt-4 btn btn-primary" type="submit" value="ADD">
             </form>
         </div>

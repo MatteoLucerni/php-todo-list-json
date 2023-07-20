@@ -16,7 +16,7 @@ if ($new_task) {
     // aggiungo la task
     $tasks[] = [
         "id" => $highest_id,
-        "task" => $new_task,
+        "text" => $new_task,
         "completed" => false
     ];
 
