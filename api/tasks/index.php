@@ -10,7 +10,15 @@ $tasks = json_decode($json_data, true);
 // prendo dal POST
 $new_task = $_POST['task'] ?? null;
 if ($new_task) {
-    $tasks[] = $new_task;
+    // calcolo l'id da dare alla task che aggiungerò
+    $highest_id = $tasks[count($tasks) - 1]["id"] + 1;
+
+    // aggiungo la task
+    $tasks[] = [
+        "id" => $highest_id,
+        "task" => $new_task,
+        "completed" => false
+    ];
 
     file_put_contents($db_path, json_encode($tasks));
 }
