@@ -18,6 +18,8 @@ const app = createApp({
         .then(res => {
           console.log('Task added');
           this.tasks = res.data;
+
+          this.newTask = '';
         });
     },
   },
