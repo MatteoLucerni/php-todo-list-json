@@ -23,7 +23,7 @@
             <h1>TODO LIST</h1>
             <ul>
                 <li v-for="task in tasks" :key="task.id">
-                    <span @click="!task.completed" :class="{'text-decoration-line-through':task.completed === true}">{{ task.text }}</span>
+                    <span @click="changeStatus(task.id)" :class="{'text-decoration-line-through':task.completed === true}">{{ task.text }}</span>
                 </li>
             </ul>
             <form @submit.prevent="addNewTask" action="">

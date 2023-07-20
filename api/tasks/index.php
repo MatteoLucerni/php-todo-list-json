@@ -7,8 +7,8 @@ $json_data = file_get_contents($db_path);
 // converto in PHP
 $tasks = json_decode($json_data, true);
 
-// prendo dal POST
-$new_task = $_POST['task'] ?? null;
+// POST per new task
+$new_task = $_POST['text'] ?? null;
 if ($new_task) {
     // calcolo l'id da dare alla task che aggiungerò
     $highest_id = $tasks[count($tasks) - 1]["id"] + 1;
@@ -19,6 +19,18 @@ if ($new_task) {
         "text" => $new_task,
         "completed" => false
     ];
+
+    file_put_contents($db_path, json_encode($tasks));
+}
+
+// POST per cambio di flag
+$selected_id = $_POST['id'] ?? null;
+if ($selected_id) {
+    foreach ($tasks as &$task) {
+        if ($task["id"] == $selected_id) {
+            $task["completed"] = !$task["completed"];
+        }
+    }
 
     file_put_contents($db_path, json_encode($tasks));
 }

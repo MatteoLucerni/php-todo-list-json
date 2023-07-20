@@ -10,7 +10,7 @@ const app = createApp({
   },
   methods: {
     addNewTask() {
-      const data = { task: this.newTask };
+      const data = { text: this.newTask };
       const config = { headers: { 'Content-Type': 'multipart/form-data' } };
 
       axios
@@ -20,6 +20,17 @@ const app = createApp({
           this.tasks = res.data;
 
           this.newTask = '';
+        });
+    },
+    changeStatus(currentId) {
+      const data = { id: currentId };
+      const config = { headers: { 'Content-Type': 'multipart/form-data' } };
+
+      axios
+        .post('http://localhost/php-todo-list-json/api/tasks/', data, config)
+        .then(res => {
+          this.tasks = res.data;
+          console.log('changed status');
         });
     },
   },
